@@ -35,13 +35,18 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_EVENT_PATH: ${{ github.event_path }}
           OPENAI_OUTPUT_LANG: "ko"
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_PR: ${{ inputs.pr }}
+          INPUT_BASE: ${{ inputs.base }}
+          INPUT_HEAD: ${{ inputs.head }}
         run: |
           mkdir -p .ai
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            if [ "${{ inputs.mode }}" = "pr" ] && [ -n "${{ inputs.pr }}" ]; then
-              python openai-pr-summarizer/scripts/ai_change_summary.py --pr "${{ inputs.pr }}" --out ".ai/summary.md"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ "$INPUT_MODE" = "pr" ] && [ -n "$INPUT_PR" ]; then
+              python openai-pr-summarizer/scripts/ai_change_summary.py --pr "$INPUT_PR" --out ".ai/summary.md"
             else
-              python openai-pr-summarizer/scripts/ai_change_summary.py --base "${{ inputs.base }}" --head "${{ inputs.head }}" --out ".ai/summary.md"
+              python openai-pr-summarizer/scripts/ai_change_summary.py --base "$INPUT_BASE" --head "$INPUT_HEAD" --out ".ai/summary.md"
             fi
           else
             python openai-pr-summarizer/scripts/ai_change_summary.py --out ".ai/summary.md"
