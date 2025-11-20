@@ -1,6 +1,6 @@
-# santa_calendar_fe
+# 산타 캘린더
 
-A new Flutter project.
+크리스마스를 위한 어드벤트 캘린더입니다.
 
 ## Getting Started
 
