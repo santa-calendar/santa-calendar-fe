@@ -1,5 +1,4 @@
 name: AI Change Summary
-
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -46,6 +45,7 @@ jobs:
             fi
           else
             python openai-pr-summarizer/scripts/ai_change_summary.py --out ".ai/summary.md"
+          fi
 
       - name: Upload artifact (backup)
         uses: actions/upload-artifact@v4
@@ -60,10 +60,12 @@ jobs:
           if [ -f .ai/summary.md ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            # PR 브랜치 체크아웃
             git checkout "${{ github.head_ref }}"
             mkdir -p .ai
             cp -f ../.ai/summary.md .ai/summary.md 2>/dev/null || true
             git add .ai/summary.md
+            # [skip ci]로 무한 트리거 방지
             git commit -m "chore(ai): add auto summary [skip ci]" || echo "no changes"
             git push origin "${{ github.head_ref }}" || true
           fi
