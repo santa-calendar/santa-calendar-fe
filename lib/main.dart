@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:santa_calendar_fe/screens/calendar/dates.dart';
+import 'package:santa_calendar_fe/screens/calendar/calendar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DatesScreen(),
+      home: CalendarScreen(),
     );
   }
 }
