@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   summarize:
-    if: startsWith(github.head_ref, 'feature/')
+    if: startsWith(github.head_ref, 'feature')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
