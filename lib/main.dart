@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:santa_calendar_fe/screens/calendar/calendar.dart';
+import 'package:santa_calendar_fe/screens/calendar/calendar_screen.dart';
 
 void main() {
   runApp(const MyApp());
