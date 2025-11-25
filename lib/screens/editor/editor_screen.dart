@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:santa_calendar_fe/screens/editor/components/date_selector.dart';
 import 'package:santa_calendar_fe/screens/editor/components/type_button.dart';
+import 'package:santa_calendar_fe/screens/editor/components/type_choice.dart';
 
 enum MenuType {
   image('이미지', Icons.image),
@@ -21,7 +22,38 @@ class EditorScreen extends StatefulWidget {
 
 class _EditorScreenState extends State<EditorScreen> {
   int? _selectedDate;
-  MenuType _selectedType = MenuType.image;
+  final MenuType _selectedType = MenuType.image;
+
+  void _showBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return Container(
+          height: 300,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("스티커 영역"),
+                ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("닫기"),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,21 +95,7 @@ class _EditorScreenState extends State<EditorScreen> {
                             });
                           },
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            for (final type in MenuType.values)
-                              TypeButton(
-                                type: type,
-                                isSelected: _selectedType == type,
-                                onTap: () {
-                                  setState(() {
-                                    _selectedType = type;
-                                  });
-                                },
-                              ),
-                          ],
-                        ),
+                        if (_selectedDate != null) TypeChoice(),
                       ],
                     ),
                   ),
@@ -112,6 +130,7 @@ class _EditorScreenState extends State<EditorScreen> {
                             ),
                             const SizedBox(height: 8),
                             _buildOptionButton(
+                              onTap: _showBottomSheet,
                               text: "스티커",
                               color: const Color(0xFFFF5252),
                               width: 80,
@@ -146,20 +165,24 @@ class _EditorScreenState extends State<EditorScreen> {
     required double height,
     Color textColor = Colors.black,
     bool isBold = false,
+    VoidCallback? onTap,
   }) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
-      child: Container(
-        width: width,
-        height: height,
-        color: color,
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 12,
-            fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: width,
+          height: height,
+          color: color,
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: textColor,
+              fontSize: 12,
+              fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+            ),
           ),
         ),
       ),
