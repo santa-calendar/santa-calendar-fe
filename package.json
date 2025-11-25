@@ -1,0 +1,29 @@
+{
+  "name": "santa_calendar_fe",
+  "version": "1.0.0",
+  "description": "크리스마스를 위한 어드벤트 캘린더입니다.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santa-calendar/santa-calendar-fe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/santa-calendar/santa-calendar-fe/issues"
+  },
+  "homepage": "https://github.com/santa-calendar/santa-calendar-fe#readme",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
