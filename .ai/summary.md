@@ -1,4 +1,4 @@
-## 🤖 AI Change Summary for PR #23
+## 🤖 AI Change Summary for PR #25
 
 ### Chunk 1/1
 ### 개요
@@ -6,7 +6,7 @@
 
 ### 주요 변경 사항
 1. **날짜 상태 추가**: `lib/models/date.dart` 파일에 `DateState` 열거형이 추가되어 날짜의 상태를 관리합니다. 각 날짜 객체는 이제 `state` 속성을 가집니다.
-2. **날짜 생성 로직 수정**: `lib/data/dummy_data.dart`에서 날짜 객체 생성 시 `state`를 `DateState.opened`로 설정하도록 수정되었습니다.
+2. **날짜 생성 로직 수정**: `lib/data/dummy_data.dart`에서 날짜 객체 생성 시 `state`를 `DateState.openable`로 설정하도록 수정되었습니다.
 3. **UI 개선**: 
    - `lib/widgets/dategridItem.dart`에서 날짜 상태에 따라 다른 배경 스타일을 적용하는 `_getDecoration` 메서드가 추가되었습니다.
    - `lib/screens/calendar/calendar_screen.dart`에서 플로팅 액션 버튼의 위치가 조정되었습니다.
