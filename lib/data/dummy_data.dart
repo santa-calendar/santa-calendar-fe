@@ -5,7 +5,7 @@ final availableDates = List.generate(24, (i) {
   return Date(
     id: 'day_${i + 1}',
     date: '${i + 1}',
-    state: DateState.opened,
+    state: DateState.openable,
     color: Colors.black,
   );
 });
