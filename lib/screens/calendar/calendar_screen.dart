@@ -3,6 +3,7 @@ import 'package:santa_calendar_fe/data/dummy_data.dart';
 import 'package:santa_calendar_fe/models/date.dart';
 import 'package:santa_calendar_fe/screens/calendar/date_detail_screen.dart';
 import 'package:santa_calendar_fe/widgets/dateGridItem.dart';
+import 'package:santa_calendar_fe/widgets/editor_action_button.dart';
 import 'package:santa_calendar_fe/widgets/main_drawer.dart';
 
 // 달력 화면
@@ -21,6 +22,7 @@ class CalendarScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('P!ick your date')),
       drawer: const MainDrawer(),
+      floatingActionButton: EditorActionButton(),
       body: GridView.count(
         padding: const EdgeInsets.all(220),
         crossAxisCount: 4,
