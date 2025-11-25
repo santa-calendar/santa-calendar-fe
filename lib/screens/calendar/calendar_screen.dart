@@ -23,6 +23,7 @@ class CalendarScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('P!ick your date')),
       drawer: const MainDrawer(),
       floatingActionButton: EditorActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       body: GridView.count(
         padding: const EdgeInsets.all(220),
         crossAxisCount: 4,
