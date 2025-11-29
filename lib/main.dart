@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:santa_calendar_fe/screens/calendar/calendar_screen.dart';
+import 'package:santa_calendar_fe/screens/login/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +12,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: CalendarScreen(),
-    );
+    return MaterialApp(home: LoginScreen());
   }
 }
