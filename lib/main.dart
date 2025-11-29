@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:santa_calendar_fe/screens/calendar/calendar_screen.dart';
 import 'package:santa_calendar_fe/screens/login/login_screen.dart';
+import 'package:santa_calendar_fe/screens/login/register_screen.dart';
 
 void main() {
   runApp(const MyApp());

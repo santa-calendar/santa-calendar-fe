@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:santa_calendar_fe/screens/login/register_screen.dart';
 import 'package:santa_calendar_fe/widgets/build_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -48,7 +49,14 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Text('계정이 없으신가요?', style: TextStyle(color: Colors.grey)),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RegisterScreen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         '회원 가입',
                         style: TextStyle(
