@@ -106,7 +106,7 @@ class _DecorateTabContentState extends State<DecorateTabContent> {
           print("AI 추천 문구 클릭됨");
         },
         borderRadius: BorderRadius.circular(12),
-        splashColor: const Color(0xFFA855F7).withOpacity(0.3),
+        splashColor: const Color(0xFFA855F7).withAlpha(30),
         child: Container(
           width: double.infinity,
           height: 60,
@@ -146,9 +146,7 @@ class _DecorateTabContentState extends State<DecorateTabContent> {
           color: isSelected ? const Color(0xFFFCD34D) : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected
-                ? Colors.transparent
-                : Colors.grey.withOpacity(0.5),
+            color: isSelected ? Colors.transparent : Colors.grey.withAlpha(50),
           ),
         ),
         child: Text(

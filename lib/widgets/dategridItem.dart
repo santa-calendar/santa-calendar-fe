@@ -22,7 +22,7 @@ class DateGriditem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           gradient: LinearGradient(
-            colors: [date.color.withOpacity(0.55), date.color.withOpacity(0.9)],
+            colors: [date.color.withAlpha(55), date.color.withAlpha(90)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -30,7 +30,7 @@ class DateGriditem extends StatelessWidget {
         child: Text(
           date.date,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-            color: Theme.of(context).colorScheme.onBackground,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ),
